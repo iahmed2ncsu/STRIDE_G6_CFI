@@ -1,10 +1,10 @@
-!k is the inverse of cycle length
+!k is the inverse of cycle length;
 max k
 
 subject to
 
-!y is the demand flow to the saturation flow ratio for each movement
-!See the ring barrier diagram to understand the movement numbers
+!y is the demand flow to the saturation flow ratio for each movement;
+!See the ring barrier diagram to understand the movement numbers;
 y1=0.14
 y2=0.24
 y3=0.09
@@ -23,9 +23,10 @@ y17=0.3
 y18=0.12
 
 
-!g is the green time to cycle length ratio each phase. g= G/C = Gk.
-!See the ring barrier diagram to understand the phase numbers.
-!Target (max) volume to capacity ratio = 0.88.
+!g is the green time to cycle length ratio each phase. g= G/C = Gk;
+!See the ring barrier diagram to understand the phase numbers;
+!Target (max) volume to capacity ratio = 0.88;
+
 !for movement 6;
 0.88g9-y6>0
 !for movement 13;
@@ -42,7 +43,7 @@ y18=0.12
 !for movement 8;
 0.88g8-y8>0
 
-!!Left turns
+!!Left turns;
 !for movement 1;
 0.88g1-y1>0
 !for movement 3;
@@ -52,14 +53,14 @@ y18=0.12
 !for movement 7;
 0.88g7-y7>0
 
-!!DLTs
+!!DLTs;
 !for movement 11;
 0.88g11-y11>0
 !for movement 15;
 0.88g14-y15>0
 
 
-!Pedestrian crossing constraints. 
+!Pedestrian crossing constraints; 
 g9-30k>0
 g12-30k>0
 g4-30k>0
