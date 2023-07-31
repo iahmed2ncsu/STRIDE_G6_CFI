@@ -1,0 +1,94 @@
+!k is the inverse of cycle length;
+max k
+
+subject to
+
+!y is the demand flow to the saturation flow ratio for each movement;
+!See the ring barrier diagram to understand the movement numbers;
+y1=0.14
+y2=0.24
+y3=0.09
+y4=0.25
+y5=0.14
+y6=0.24
+y7=0.09
+y8=0.25
+y11=0.14
+y12=0.13
+y13=0.3
+y14=0.12
+y15=0.14
+y16=0.13
+y17=0.3
+y18=0.12
+
+
+
+!g is the green time to cycle length ratio each phase. g= G/C = Gk;
+!See the ring barrier diagram to understand the phase numbers;
+!Target (max) volume to capacity ratio = 0.88;
+
+!for movement 6;
+0.88g13+0.88g14+7k-y6>0
+!for movement 13;
+0.88g14+0.88g15+7k-y13>0
+
+!for movement 2;
+0.88g10+0.88g9+7k-y2>0
+!for movement 17;
+0.88g10+0.88g11+7k-y17>0
+
+!for movement 4;
+0.88g4-y4>0
+
+!for movement 8;
+0.88g8-y8>0
+
+!!Left turns
+!for movement 1;
+0.88g1-y1>0
+!for movement 3;
+0.88g3-y3>0
+!for movement 5;
+0.88g5-y5>0
+!for movement 7;
+0.88g7-y7>0
+
+!!DLTs
+!for movement 11;
+0.88g12+0.88g9+7k-y11>0
+!for movement 15;
+0.88g16+0.88g13+7k-y15>0
+
+
+!Pedestrian crossing constraints;
+g2-30k>0
+g6-30k>0
+
+
+!sum of all phase times in each ring must equal to cycle length;
+g1+g2+g3+g4+28k=1
+g5+g6+g7+g8+28k=1
+g9+g10+g11+g12+28k=1
+g13+g14+g15+g16+28k=1
+
+!Constrains for the maximum and minimum cycle length;
+k>0.005
+k<0.0167
+
+!phase 9, 13 ,12,16 should be longer than 9sec;
+g9-9k>0
+g13-9k>0
+g12-9k>0
+g16-9k>0
+
+!Barrier 1 and 2 must start and end at the same time at each ring;
+g1+g2-g5-g6=0
+g9+g10-g11-g12=0
+g9+g10-g1-g2=0
+g3+g4-g7-g8=0
+g11+g12-g15-g16=0
+g11+g12-g3-g4=0
+
+
+END
